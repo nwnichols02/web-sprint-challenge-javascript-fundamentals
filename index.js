@@ -28,13 +28,22 @@ function myFunction() {
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/** */) {
+function summation(num) {
+  const totalSum = [];
+  for(let i = 0; i <= num; i++){
+    totalSum.push(i)
+    }
+    return totalSum.reduce(function(acc, item){
+      return acc + item;
+    }, 0)
+  }
+ console.log(summation(4));
+
+ 
+
     // for(let i = 0; i < num.length; i--){
     //   console.log(num[i])
     // }
-
-  }
-//  summation(4);
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -196,15 +205,31 @@ const cuboid = new CuboidMaker({
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-console.log(cuboid.volume()); // 100
-console.log(cuboid.surfaceArea()); // 130
+// console.log(cuboid.volume()); // 100
+// console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-
+  constructor(atr){
+    this.length = atr.length;
+    this.width = atr.width;
+    this.height = atr.height;
+  }
+  volume(){
+    return this.length * this.width * this.height;
+  }
+  surfaceArea(){
+    return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height))   
+  }
 }
+
+const cuboidTwo = new CuboidMaker({
+  length: 4,
+  width: 5,
+  height: 5
+});
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
